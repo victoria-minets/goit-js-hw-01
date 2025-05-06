@@ -1,2 +1,3 @@
-# goit-markup-hw-01
-1 Homework for GoIT
+# goit-js-hw-01
+
+1 Homework for GoIT JS
