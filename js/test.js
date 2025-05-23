@@ -144,20 +144,113 @@
 
 // --------------------------------------------------------------------
 
-function findNumber(max, target) {
-  console.log('Log in the body of the function before the cycle');
+// function findNumber(max, target) {
+//   console.log('Log in the body of the function before the cycle');
 
-  for (let i = 5; i <= max; i += 1) {
-    console.log('Current counter value i:', i);
+//   for (let i = 5; i <= max; i += 1) {
+//     console.log('Current counter value i:', i);
 
-    if (i === target) {
-      console.log(`Found the number ${target}, interrupt the cycle`);
-      break;
-    }
-  }
+//     if (i === target) {
+//       console.log(`Found the number ${target}, interrupt the cycle`);
+//       break;
+//     }
+//   }
 
-  console.log('Log in body function after cycle');
+//   console.log('Log in body function after cycle');
+// }
+
+// findNumber(10, 6);
+// console.log('Log after exiting function');
+
+// --------------------------------------------------------------------
+
+// const arr1 = [1, 2, 3];
+// const arr2 = arr1;
+
+// console.log(arr1 === arr2); // false
+// console.log([] === []); // false
+
+// --------------------------------------------------------------------
+
+// function transformString(string) {
+//   const words = string.split('_');
+//   console.log(words);
+//   return words.join('-');
+// }
+
+// transformString('user_age'); // "user-age"
+// transformString('price_per_droid'); // "price-per-droid"
+
+// --------------------------------------------------------------------
+
+// function getSlice(array, value) {
+//   const idx = array.indexOf(value);
+//   if (idx === -1) {
+//     return [];
+//   } else {
+//     return array.slice(0, idx + 1);
+//   }
+// }
+
+// console.log(getSlice(['Mango', 'Poly', 'Ajax'], 'Poly')); // повертає ["Mango", "Poly"]
+// console.log(getSlice(['Mango', 'Poly', 'Ajax'], 'Ajax')); //повертає ["Mango", "Poly", "Ajax"]
+// console.log(getSlice(['Mango', 'Poly', 'Ajax'], 'Mango')); // повертає ["Mango"]
+// console.log(getSlice(['Mango', 'Poly', 'Ajax'], 'Jacob')); //повертає []
+// console.log(getSlice(['Mango', 'Poly', 'Ajax'], 'Casey')); //повертає []
+
+// --------------------------------------------------------------------
+
+// function createArrayOfNumbers(min, max) {
+//   const myNumbers = [];
+//   for (let i = min; i <= max; i += 1) {
+//     myNumbers.push(i);
+//   }
+//   return myNumbers;
+// }
+// --------------------------------------------------------------------
+
+// function getEvenNumbers(start, end) {
+//   const myNumbers = [];
+//   for (let i = start; i <= end; i++) {
+//     if (i % 2 === 0) {
+//       myNumbers.push(i);
+//     }
+//   }
+//   return myNumbers;
+// }
+
+// console.log(getEvenNumbers(8, 8));
+
+// --------------------------------------------------------------------
+
+// function checkStorage(storage, item) {
+//   let itemNormalize = item.toLowerCase();
+//   if (storage.includes(itemNormalize)) {
+//     return `${itemNormalize} is available to order!`;
+//   } else {
+//     return 'Sorry! We are out of stock!';
+//   }
+// }
+
+// console.log(checkStorage(['apple', 'plum', 'pear'], 'pLuM'));
+
+// --------------------------------------------------------------------
+
+// function getCommonElements(array1, array2) {
+//   const myNumbers = [];
+//   for (let i = 0; i < array1.length; i++) {
+//     if (array2.includes(array1[i])) {
+//       myNumbers.push(array1[i]);
+//     }
+//   }
+//   return myNumbers;
+// }
+
+// --------------------------------------------------------------------
+
+function createReversedArray() {
+  const args = Array.from(arguments);
+  return args.toReversed();
 }
 
-findNumber(10, 6);
-console.log('Log after exiting function');
+console.log(createReversedArray(12, 85, 37, 4));
