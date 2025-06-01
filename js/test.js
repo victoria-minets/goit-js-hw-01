@@ -248,9 +248,174 @@
 
 // --------------------------------------------------------------------
 
-function createReversedArray() {
-  const args = Array.from(arguments);
-  return args.toReversed();
-}
+// function createReversedArray() {
+//   const args = Array.from(arguments);
+//   return args.toReversed();
+// }
 
-console.log(createReversedArray(12, 85, 37, 4));
+// console.log(createReversedArray(12, 85, 37, 4));
+
+// const apartment = {
+//   imgUrl: 'https://via.placeholder.com/640x480',
+//   descr: 'Spacious apartment in the city center',
+//   rating: 4,
+//   price: 2153,
+//   tags: ['premium', 'promoted', 'top'],
+//   owner: {
+//     name: 'Henry',
+//     phone: '982-126-1588',
+//     email: 'henry.carter@aptmail.com',
+//   },
+// };
+
+// const ownerName = apartment.owner.name;
+// const ownerPhone = apartment.owner.phone;
+// const ownerEmail = apartment.owner.email;
+// const numberOfTags = apartment.tags.length;
+// const firstTag = apartment.tag[0];
+// const lastTag = apartment.tag[2];
+
+// const apartment = {
+//   imgUrl: "https://via.placeholder.com/640x480",
+//   descr: "Spacious apartment in the city center",
+//   rating: 4,
+//   price: 2153,
+//   tags: ["premium", "promoted", "top"],
+//   owner: {
+//     name: "Henry",
+//     phone: "982-126-1588",
+//     email: "henry.carter@aptmail.com",
+//   },
+// };
+
+// apartment.price = 5000;
+// apartment.rating = 4.7;
+// apartment.owner.name = "Henry Sibola";
+// apartment.tags.push("trusted");
+
+// ------------------------------------------------------
+
+// function getAllPropValues(propName) {
+//   const products = [
+//     { name: 'Radar', price: 1300, quantity: 4 },
+//     { name: 'Scanner', price: 2700, quantity: 3 },
+//     { name: 'Droid', price: 400, quantity: 7 },
+//     { name: 'Grip', price: 1200, quantity: 9 },
+//   ];
+
+//   const result = [];
+//   for (const product of products) {
+//     if (product.hasOwnProperty(propName)) {
+//       result.push(product[propName]);
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(getAllPropValues('name'));
+// console.log(getAllPropValues('quantity'));
+// console.log(getAllPropValues('price'));
+// console.log(getAllPropValues('category'));
+
+// for (const key of keys) {
+//   if (object.hasOwnProperty(key)) {
+//     propCount += 1;
+//   }
+// }
+
+// -------------------------------------------------------
+
+// function calculateTotalPrice(productName) {
+//   const products = [
+//     { name: 'Radar', price: 1300, quantity: 4 },
+//     { name: 'Scanner', price: 2700, quantity: 3 },
+//     { name: 'Droid', price: 400, quantity: 7 },
+//     { name: 'Grip', price: 1200, quantity: 9 },
+//   ];
+
+//   for (const product of products) {
+//     if (product.name === productName) {
+//       return product.price * product.quantity;
+//     }
+//   }
+//   return `Product ${productName} not found!`;
+// }
+
+// console.log(calculateTotalPrice('Blaster'));
+// console.log(calculateTotalPrice('Radar'));
+// console.log(calculateTotalPrice('Droid'));
+// console.log(calculateTotalPrice('Grip'));
+// console.log(calculateTotalPrice('Scanner'));
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   getPotions() {
+//     return this.potions;
+//   },
+//   updatePotionName(oldName, newName) {
+// 		for (const potion of this.potions) {
+// 			if(potion.name === oldName) {
+// 				potion.name = newName;
+// 			}
+//   },
+// };
+
+// function addOverNum(value, ...args) {
+//   let total = 0;
+//   for (let i = 0; i <= args.length; i += 1) {
+//     if (args[i] > value) {
+//       total += args[i];
+//     }
+//   }
+//   return total;
+// }
+
+// console.log(addOverNum(50, 15, 27));
+// console.log(addOverNum(10, 12, 4, 11, 48, 10, 8));
+// console.log(addOverNum(15, 32, 6, 13, 19, 8));
+// console.log(addOverNum(20, 74, 11, 62, 46, 12, 36));
+
+// -------------------------------------------------------
+
+// БАНКІНГ
+// два типи трансакцій по рахунку
+
+const Transaction = {
+  DEPOSIT: 'deposit',
+  WITHDRAW: 'withdraw',
+};
+
+// кожна трансакція це обєкт з id, type, amount
+
+const account = {
+  balance: 0,
+  transactions: [],
+
+  // метод створює та повертає обєкт трансакцій
+  createTransaction(amount, type) {
+    const obj = { id: amount, amount, type };
+    return obj;
+  },
+
+  // додавання до балансу
+  deposit(amount) {
+    this.balance += account;
+    const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+    this.transactions.push(transaction);
+  },
+
+  // зняття з балансу
+  withdraw(amount) {},
+
+  getBalance() {},
+
+  getTransactionDetails(id) {},
+  getTransactionTotal(type) {},
+};
+
+account.deposit(200);
+
+console.log(account);
