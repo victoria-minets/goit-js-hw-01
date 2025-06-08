@@ -383,39 +383,140 @@
 // БАНКІНГ
 // два типи трансакцій по рахунку
 
-const Transaction = {
-  DEPOSIT: 'deposit',
-  WITHDRAW: 'withdraw',
-};
+// const Transaction = {
+//   DEPOSIT: 'deposit',
+//   WITHDRAW: 'withdraw',
+// };
 
-// кожна трансакція це обєкт з id, type, amount
+// // кожна трансакція це обєкт з id, type, amount
 
-const account = {
-  balance: 0,
-  transactions: [],
+// const account = {
+//   balance: 0,
+//   transactions: [],
 
-  // метод створює та повертає обєкт трансакцій
-  createTransaction(amount, type) {
-    const obj = { id: amount, amount, type };
-    return obj;
+//   // метод створює та повертає обєкт трансакцій
+//   createTransaction(amount, type) {
+//     const obj = { id: amount, amount, type };
+//     return obj;
+//   },
+
+//   // додавання до балансу
+//   deposit(amount) {
+//     this.balance += account;
+//     const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+//     this.transactions.push(transaction);
+//   },
+
+//   // зняття з балансу
+//   withdraw(amount) {},
+
+//   getBalance() {},
+
+//   getTransactionDetails(id) {},
+//   getTransactionTotal(type) {},
+// };
+
+// account.deposit(200);
+
+// console.log(account);
+
+// ----------------------------------------------------------------------
+
+// function deliverPizza(pizzaName) {
+//   return `Delivering ${pizzaName} pizza.`;
+// }
+
+// function makePizza(pizzaName) {
+//   return `Pizza ${pizzaName} is being prepared, please wait...`;
+// }
+
+// function makeMessage(pizzaName, callback) {
+//   return callback(pizzaName);
+// }
+
+// console.log(makeMessage('Royal Grand', makePizza)); // повертає рядок "Pizza Royal Grand is being prepared, please wait..."
+// console.log(makeMessage('Ultracheese', deliverPizza)); // повертає рядок "Delivering Ultracheese pizza."
+
+// function filterArray(numbers, value) {
+//   let result = [];
+
+//   numbers.forEach(function (number, index) {
+//     if (number > value) {
+//       result.push(number);
+//     }
+//   });
+
+//   return result;
+// }
+
+// const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+
+// const evenNumbers = numbers.filter(value => (value % 2 = 0));
+// const oddNumbers = numbers.filter(value => !(value % 2 = 0));
+
+// ------------------------------------------------------
+
+// const students = [
+//   { name: 'Mango', score: 83, courses: ['mathematics', 'physics'] },
+//   { name: 'Poly', score: 59, courses: ['science', 'mathematics'] },
+//   { name: 'Ajax', score: 37, courses: ['physics', 'biology'] },
+//   { name: 'Kiwi', score: 94, courses: ['literature', 'science'] },
+// ];
+
+// const uniqueSortedCourses = students.flatMap(student => student.courses);
+
+// console.log(uniqueSortedCourses);
+
+// const result = uniqueSortedCourses.filter((course, index, array) => {
+//   console.log(array);
+//   console.log(index);
+//   console.log(course);
+//   console.log(array.indexOf(course));
+//   return array.indexOf(course) === index;
+// });
+
+// // .toSorted((a, b) => a.localeCompare(b))
+
+// console.log(result); // ["biology", "science", "literature", "mathematics", "physics"]
+
+// -------------------------------------------------------------
+
+const books = [
+  {
+    title: 'The Last Kingdom',
+    author: 'Bernard Cornwell',
+    rating: 8.38,
   },
-
-  // додавання до балансу
-  deposit(amount) {
-    this.balance += account;
-    const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
-    this.transactions.push(transaction);
+  {
+    title: 'Beside Still Waters',
+    author: 'Robert Sheckley',
+    rating: 8.51,
   },
+  {
+    title: 'The Dream of a Ridiculous Man',
+    author: 'Fyodor Dostoevsky',
+    rating: 7.75,
+  },
+  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+  {
+    title: 'The Dreams in the Witch House',
+    author: 'Howard Lovecraft',
+    rating: 8.67,
+  },
+];
+const MIN_BOOK_RATING = 8;
 
-  // зняття з балансу
-  withdraw(amount) {},
+const names = books
+  .filter(book => book.rating > MIN_BOOK_RATING)
+  .map(book => book.author)
+  .toSorted((a, b) => a.localeCompare(b));
 
-  getBalance() {},
+console.log(names);
 
-  getTransactionDetails(id) {},
-  getTransactionTotal(type) {},
-};
+// filter, map, toSorted;
+//   const uniqueSortedCourses = students
+//   .flatMap(student => student.courses)
+//   .filter((course, index, array) => array.indexOf(course) === index)
+//   .toSorted((a, b) => a.localeCompare(b));
 
-account.deposit(200);
-
-console.log(account);
+// console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathematics", "physics"]
