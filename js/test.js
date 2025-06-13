@@ -481,37 +481,37 @@
 
 // -------------------------------------------------------------
 
-const books = [
-  {
-    title: 'The Last Kingdom',
-    author: 'Bernard Cornwell',
-    rating: 8.38,
-  },
-  {
-    title: 'Beside Still Waters',
-    author: 'Robert Sheckley',
-    rating: 8.51,
-  },
-  {
-    title: 'The Dream of a Ridiculous Man',
-    author: 'Fyodor Dostoevsky',
-    rating: 7.75,
-  },
-  { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
-  {
-    title: 'The Dreams in the Witch House',
-    author: 'Howard Lovecraft',
-    rating: 8.67,
-  },
-];
-const MIN_BOOK_RATING = 8;
+// const books = [
+//   {
+//     title: 'The Last Kingdom',
+//     author: 'Bernard Cornwell',
+//     rating: 8.38,
+//   },
+//   {
+//     title: 'Beside Still Waters',
+//     author: 'Robert Sheckley',
+//     rating: 8.51,
+//   },
+//   {
+//     title: 'The Dream of a Ridiculous Man',
+//     author: 'Fyodor Dostoevsky',
+//     rating: 7.75,
+//   },
+//   { title: 'Redder Than Blood', author: 'Tanith Lee', rating: 7.94 },
+//   {
+//     title: 'The Dreams in the Witch House',
+//     author: 'Howard Lovecraft',
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
 
-const names = books
-  .filter(book => book.rating > MIN_BOOK_RATING)
-  .map(book => book.author)
-  .toSorted((a, b) => a.localeCompare(b));
+// const names = books
+//   .filter(book => book.rating > MIN_BOOK_RATING)
+//   .map(book => book.author)
+//   .toSorted((a, b) => a.localeCompare(b));
 
-console.log(names);
+// console.log(names);
 
 // filter, map, toSorted;
 //   const uniqueSortedCourses = students
@@ -520,3 +520,85 @@ console.log(names);
 //   .toSorted((a, b) => a.localeCompare(b));
 
 // console.log(uniqueSortedCourses); // ["biology", "science", "literature", "mathematics", "physics"]
+
+// ----------------------------------
+
+// const pizzaPalace = {
+//   pizzas: ['Supercheese', 'Smoked', 'Four meats'],
+//   checkPizza(pizzaName) {
+//     return this.pizzas.includes(pizzaName);
+//   },
+//   order(pizzaName) {
+//     const isPizzaAvailable = this.checkPizza(pizzaName);
+
+//     if (!isPizzaAvailable) {
+//       return `Sorry, there is no pizza named «${pizzaName}»`;
+//     }
+
+//     return `Order accepted, preparing «${pizzaName}» pizza`;
+//   },
+// };
+
+// console.log(pizzaPalace.order('Big Mike'));
+
+// -------------------------------------------------------------
+// Додай класу Admin наступні властивості і методи.
+
+// Публічну властивість blacklistedEmails для зберігання чорного списку поштових адрес користувачів.
+// Значення за замовчуванням — це порожній масив.
+// Публічний метод blacklist(email) для додавання пошти у чорний список.
+// Метод повинен додавати значення параметра email в масив, що зберігається у властивості blacklistedEmails.
+// Публічний метод isBlacklisted(email) для перевірки пошти у чорному списку.
+// Метод повинен перевіряти наявність значення параметра email в масиві, що зберігається
+// у властивості blacklistedEmails, і повертати true або false.
+
+class User {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+class Admin extends User {
+  blacklistedEmails = [];
+
+  static role = {
+    BASIC: 'basic',
+    SUPERUSER: 'superuser',
+  };
+
+  constructor(params) {
+    super(params.email);
+    this.access = params.access;
+  }
+
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
+
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
+}
+
+const mango = new Admin({
+  email: 'mango@mail.com',
+  access: Admin.role.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.access); // "superuser"
+
+mango.blacklist('poly@mail.com');
+console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+console.log(mango.isBlacklisted('mango@mail.com')); // false
+console.log(mango.isBlacklisted('poly@mail.com')); // true
